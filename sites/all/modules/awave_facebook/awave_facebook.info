@@ -1,0 +1,6 @@
+name = Awave Facebook
+description = Awave Facebook (Login with facebook and get user public information)
+package = Awave Facebook
+version = 7.x
+core = 7.x
+configure = admin/config/people/facebook-login

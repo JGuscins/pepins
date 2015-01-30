@@ -1,0 +1,320 @@
+/* line 5, ../sass/frontpage.scss */
+.front #navbar {
+  background-color: transparent;
+  border-bottom: 0 none;
+  font-family: Roboto;
+  font-size: 19px;
+  line-height: 120%;
+}
+/* line 12, ../sass/frontpage.scss */
+.front #navbar.fixed {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+/* line 15, ../sass/frontpage.scss */
+.front #navbar.fixed .navbar_logo {
+  display: block;
+}
+@media screen and (max-width: 767px) {
+  /* line 15, ../sass/frontpage.scss */
+  .front #navbar.fixed .navbar_logo {
+    display: none;
+  }
+}
+/* line 24, ../sass/frontpage.scss */
+.front #navbar .navbar_logo {
+  display: none;
+}
+/* line 29, ../sass/frontpage.scss */
+.front .top-image {
+  min-height: 647px;
+}
+/* line 32, ../sass/frontpage.scss */
+.front .top-image .logo {
+  background-image: url('/sites/all/themes/pepins/images/front_logo.png?1422435066');
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: block;
+  height: 108px;
+  margin: 65px auto 27px;
+  overflow: hidden;
+  width: 84px;
+}
+/* line 42, ../sass/frontpage.scss */
+.front .top-image .logo img {
+  display: none;
+}
+@media screen and (max-width: 480px) {
+  /* line 32, ../sass/frontpage.scss */
+  .front .top-image .logo {
+    height: 64px;
+    width: 50px;
+    background-image: url('/sites/all/themes/pepins/images/front_logo_mini.png?1422435066');
+    margin-top: 81px;
+    margin-bottom: 15px;
+  }
+}
+/* line 54, ../sass/frontpage.scss */
+.front .top-image .logo.custom-logo {
+  background-image: none;
+  height: auto;
+  width: auto;
+}
+/* line 59, ../sass/frontpage.scss */
+.front .top-image .logo.custom-logo img {
+  display: inline-block;
+}
+@media screen and (max-width: 480px) {
+  /* line 59, ../sass/frontpage.scss */
+  .front .top-image .logo.custom-logo img {
+    transform: scale(0.59);
+  }
+}
+/* line 70, ../sass/frontpage.scss */
+.front .topic-line1 {
+  margin-top: 0;
+}
+/* line 74, ../sass/frontpage.scss */
+.front .frontpage-links a {
+  margin-bottom: 1.8em;
+}
+/* line 78, ../sass/frontpage.scss */
+.front .frontpage-descriptions {
+  font-family: 'Roboto';
+  line-height: 200%;
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+  margin-bottom: 1.8em;
+}
+/* line 86, ../sass/frontpage.scss */
+.front .frontpage-descriptions a {
+  color: #f14797;
+}
+@media screen and (max-width: 480px) {
+  /* line 78, ../sass/frontpage.scss */
+  .front .frontpage-descriptions {
+    width: 80%;
+  }
+}
+
+/* line 98, ../sass/frontpage.scss */
+.btn.btn-default.btn_userregister {
+  background-color: #f14797;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+}
+/* line 104, ../sass/frontpage.scss */
+.btn.btn-default.btn_userregister:hover {
+  background-color: #89345c;
+  color: #fff;
+}
+/* line 110, ../sass/frontpage.scss */
+.btn.btn-default.btn_show_campagins {
+  background-color: #fff;
+  border-right: 5px;
+  border: 0 none;
+  color: #134fa9;
+  display: inline-block;
+}
+/* line 117, ../sass/frontpage.scss */
+.btn.btn-default.btn_show_campagins:hover {
+  background-color: #134fa9;
+  color: #fff;
+}
+
+/* line 124, ../sass/frontpage.scss */
+.field.field-name-field-qutoe .field-item {
+  color: #222;
+  font-family: DroidSerif;
+  font-size: 26.6px;
+  font-style: italic;
+  line-height: 150%;
+  padding: 1em 0 .565em;
+  text-align: center;
+}
+@media screen and (max-width: 480px) {
+  /* line 124, ../sass/frontpage.scss */
+  .field.field-name-field-qutoe .field-item {
+    margin-left: auto;
+    margin-right: auto;
+    width: 227px;
+    font-size: 16px;
+    line-height: 137%;
+  }
+}
+/* line 141, ../sass/frontpage.scss */
+.field.field-name-field-qutoe .field-item:before, .field.field-name-field-qutoe .field-item:after {
+  position: relative;
+}
+/* line 146, ../sass/frontpage.scss */
+.field.field-name-field-qutoe .field-item:before {
+  content: url('/sites/all/themes/pepins/images/quote.png?1422435066');
+  right: 7px;
+  top: -3px;
+}
+@media screen and (max-width: 480px) {
+  /* line 146, ../sass/frontpage.scss */
+  .field.field-name-field-qutoe .field-item:before {
+    content: url('/sites/all/themes/pepins/images/quote_mini.png?1422435066');
+    top: -1px;
+  }
+}
+/* line 157, ../sass/frontpage.scss */
+.field.field-name-field-qutoe .field-item:after {
+  content: url('/sites/all/themes/pepins/images/unquote.png?1422435066');
+  left: 6px;
+  top: 1px;
+}
+@media screen and (max-width: 480px) {
+  /* line 157, ../sass/frontpage.scss */
+  .field.field-name-field-qutoe .field-item:after {
+    content: url('/sites/all/themes/pepins/images/unquote_mini.png?1422435066');
+    top: 0;
+  }
+}
+
+/* line 169, ../sass/frontpage.scss */
+.field.field-name-field-quote-from {
+  font-size: 17px;
+  margin-bottom: 4em;
+}
+@media screen and (max-width: 480px) {
+  /* line 169, ../sass/frontpage.scss */
+  .field.field-name-field-quote-from {
+    font-size: 13px;
+    margin-bottom: 2.25em;
+  }
+}
+/* line 178, ../sass/frontpage.scss */
+.field.field-name-field-quote-from .field-item {
+  color: #222;
+  font-family: Roboto;
+  font-weight: 400;
+  line-height: 16.324px;
+  padding-bottom: 2em;
+  text-align: center;
+}
+/* line 186, ../sass/frontpage.scss */
+.field.field-name-field-quote-from .field-item:before, .field.field-name-field-quote-from .field-item:after {
+  bottom: 5px;
+  color: #929292;
+  content: '_';
+  font-size: 30px;
+  position: relative;
+}
+/* line 195, ../sass/frontpage.scss */
+.field.field-name-field-quote-from .field-item:before {
+  right: 10px;
+}
+/* line 199, ../sass/frontpage.scss */
+.field.field-name-field-quote-from .field-item:after {
+  left: 10px;
+}
+
+/* line 207, ../sass/frontpage.scss */
+.field-collection-container {
+  clear: both;
+  padding: 3em 0;
+  display: block;
+  border: 0 none;
+  margin-bottom: 63px;
+}
+/* line 214, ../sass/frontpage.scss */
+.field-collection-container a.btn.btn-default {
+  background-color: #222;
+  border-radius: 5px;
+  clear: both;
+  display: block;
+  float: right;
+  margin: 42px 0;
+  min-width: 194px;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+/* line 226, ../sass/frontpage.scss */
+.field-collection-container a.btn.btn-default span {
+  color: #fff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 45px;
+}
+
+/*.field-name-field-textblocks > .field-items > .field-item {
+  width: 49%;
+
+  &.even {
+    float: left;
+  }
+
+  &.odd {
+    float: right;
+  }
+}*/
+/* line 248, ../sass/frontpage.scss */
+.field.field-name-field-textblock-headline {
+  color: #222;
+  font-family: Roboto;
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 100%;
+  text-align: left;
+}
+
+/* line 257, ../sass/frontpage.scss */
+.field.field-name-field-textblock-punch-line {
+  color: #222;
+  font-family: DroidSerif;
+}
+/* line 261, ../sass/frontpage.scss */
+.field.field-name-field-textblock-punch-line h2 {
+  color: #222;
+  font-family: DroidSerif;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 400;
+  margin: .6em 0 1.2em;
+  text-align: left;
+}
+
+/* line 272, ../sass/frontpage.scss */
+.field.field-name-field-textblock-text {
+  color: #222;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 200%;
+  margin-bottom: 3em;
+  text-align: left;
+}
+
+/* line 284, ../sass/frontpage.scss */
+.field.field-name-field-textblocks .field-collection-view {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 290, ../sass/frontpage.scss */
+.field.field-name-field-textblock-link {
+  overflow: hidden;
+  padding-bottom: 3em;
+}
+/* line 294, ../sass/frontpage.scss */
+.field.field-name-field-textblock-link a {
+  background-color: rgba(19, 79, 169, 0);
+  border: solid 1px #134fa9;
+  border-radius: 5px;
+  color: #134fa9;
+  display: block;
+  float: left;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 250%;
+  margin: 0;
+  min-width: 212px;
+  text-align: center;
+  text-transform: uppercase;
+}

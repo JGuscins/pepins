@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="//pepins.local/sv/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>http://pepins.local/sv</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+<url><loc>http://pepins.local/sv/revolutionary-app-lorem-ipsum</loc><lastmod>2015-01-30T09:38Z</lastmod><changefreq>daily</changefreq></url>
+<url><loc>http://pepins.local/sv/test</loc><lastmod>2015-01-05T15:30Z</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>http://pepins.local/sv/test2</loc><lastmod>2015-01-05T15:31Z</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>http://pepins.local/sv/test3</loc><lastmod>2015-01-05T15:32Z</lastmod><changefreq>monthly</changefreq></url>
+</urlset>

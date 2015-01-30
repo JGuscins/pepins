@@ -1,0 +1,17 @@
+project_type = :stand_alone
+project_path = File.dirname(__FILE__)
+cache_path = "/tmp/sass/"
+output_style = :expanded
+#http_path = "http://pepins.localhost"
+theme_dir =  "sites/all/themes/pepins/"
+css_dir = theme_dir + "css"
+#css_path = "/var/www/drupal_projects/pepins/sites/all/themes/pepins/css"
+sass_dir = theme_dir + "sass"
+#sass_path = "/var/www/drupal_projects/sites/all/themes/pepins/sass"
+images_dir = theme_dir + "images"
+#images_path = "/var/www/drupal_projects/pepins/sites/all/themes/pepins/images"
+sprite_load_path = [ project_path + "/" + images_dir ]
+#sprite_load_path = [ "/" + images_dir ]
+#sprite_load_path = [ "sprite" ]
+generated_images_dir = images_dir
+#relative_assets = true

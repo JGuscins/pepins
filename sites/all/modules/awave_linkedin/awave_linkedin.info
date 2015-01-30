@@ -1,0 +1,6 @@
+name = Awave Linkedin
+description = Awave Linkedin (Login with Linkedin and get user public information)
+package = Awave Linkedin
+version = 7.x
+core = 7.x
+configure = admin/config/people/linkedin-login

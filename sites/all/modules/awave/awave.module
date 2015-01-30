@@ -1,0 +1,229 @@
+<?php
+
+function awave_menu_alter(&$items) {
+	$items['user']['type'] = MENU_CALLBACK;
+	$items['user/register']['type'] = MENU_CALLBACK;
+	$items['user/password']['type'] = MENU_CALLBACK;
+}
+
+
+function awave_menu() {
+    $items['sv'] = array(
+	 'page callback' => 'awave_change_language_to_sv',
+	  'access arguments' => array('access content'),
+    );
+	$items['en'] = array(
+      'page callback' => 'awave_change_language_to_en',
+	  'access arguments' => array('access content'),
+    );
+    return $items;
+}
+
+ 
+ function awave_change_language_to_sv() {
+   drupal_goto('<front>', array('language' => 'sv') );	
+	die;
+ }
+
+ function awave_change_language_to_en() {
+   drupal_goto('<front>', array('language' => 'en') );	
+	die;
+ }
+
+function awave_form_alter(&$form, &$form_state, $form_id) {
+	// REIGSTRATION FORM
+	if($form_id == 'user_register_form') {
+		/* CHECK IF WE HAVE FACEBOOK OR LINKEDIN DATA*/
+		if(isset($_SESSION['facebook_auth'])) {
+			// SET DATA FROM FACEBOOK
+			$auth_data = array(
+				'mail' 			=> $_SESSION['facebook_auth']['email'],
+				'picture'		=> 'http://graph.facebook.com/'.$_SESSION['facebook_auth']['id'].'/picture?type=large'
+			);
+		} elseif(isset($_SESSION['linkedin_auth'])) {
+			// SET DATA FROM LINKEDIN
+			$auth_data = array(
+				'mail' 			=> $_SESSION['linkedin_auth']['emailAddress'],
+				'picture'		=> $_SESSION['linkedin_auth']['pictureUrl']
+			);
+		} 
+
+		if(isset($auth_data)) {
+			$form['account']['mail']['#default_value'] = $auth_data['mail'];
+		}
+
+		/* HUDE TEXT BEFORE AND LINKED, FACEBOOK AUTH */
+        $form['textbefore']['#markup'] =  '
+        <h1>'.t('Registera dig idag!').'</h1>
+        <h4 class="ingress">'.t('Som registrerad användare hos Pepins får du tillgång till alla kampanjer och nyhetsflöden. Som registrerad användare hos Pepins får du tillgång till alla kampanjer och nyhetsflöden. Som registrerad användare hos Pepins får du tillgång till alla kampanjer och nyhetsflöden').'</h4>
+        <h4>'.t('Logga in med Facebook eller LinkedIn ..').'</h4>'.'
+        <a href="'.url('user/login-with-facebook').'" class="btn btn-default"><span class="icon-facebook"></span><span>Facebook</span></a>
+        <a href="'.url('user/login-with-linkedin').'" class="btn btn-default"><span class="icon-linkedin"></span><span>LinkedIn</span></a>'.'
+        <hr>
+        <h4>'.t('...eller fyll i dina uppgifter nedan').'</h4>';
+        $form['textbefore']['#type'] = 'item';
+		$form['textbefore']['#weight'] = -50;
+		 
+		/* EMAIL AND USERNAME ROW */
+		$form['account']['mail']['#prefix'] = '<div class="row"><div class="col-sm-6">';
+		$form['account']['mail']['#suffix'] = '</div>';
+		$form['account']['mail']['#attributes']['placeholder'] = t('Epost *');
+		$form['account']['mail']['#title_display'] = 'invisible';
+		$form['account']['mail']['#weight'] = -20;
+
+		$form['account']['name']['#prefix'] = '<div class="col-sm-6">';
+		$form['account']['name']['#suffix'] = '</div></div>';
+		$form['account']['name']['#attributes']['placeholder'] = t('Alias *');
+		$form['account']['name']['#title_display'] = 'invisible';
+
+		/* PASSWORD AND PASSWORD REPEAT ROW */		
+		$form['account']['pass']['#prefix'] = '<div class="row">';
+		$form['account']['pass']['#suffix'] = '</div>';
+
+		/* PASSWORD CONFIRMATION OVERRIDE */
+		$form['account']['pass']['#process'] = array('form_process_password_confirm', 'register_alter_password_confirm');
+
+		/* COLLAPSE BLOCK / DIVIDE IN TWO BLOCKS */
+		$form['field_optional_country']['#prefix'] = '
+		<hr class="no-margin-bottom">
+		<h3 class="optional_options" data-toggle="collapse" href="#optional_options_inner" aria-expanded="false" aria-controls="optional_options_inner">'.t('Frivilliga uppgifter').'</h3>
+		<div id="optional_options_inner" class="collapse"><div class="row"><div class="col-sm-6"><div class="row"><div class="col-sm-12">';
+
+		/* STREET */
+		$form['field_optional_street']['#prefix'] = '<div class="col-sm-6">';
+		$form['field_optional_street']['und'][0]['value']['#attributes']['placeholder'] = t('Gata');
+		$form['field_optional_street']['und'][0]['value']['#title_display'] = 'invisible';
+
+		/* PHONE NUMBER */
+		$form['field_optional_phone']['#suffix'] = '</div></div></div><div class="clearfix"></div><hr class="no-margin-top">';
+		$form['field_optional_phone']['und'][0]['value']['#attributes']['placeholder'] = t('Telefonnummer');
+		$form['field_optional_phone']['und'][0]['value']['#title_display'] = 'invisible';
+
+		/* COUNTRY */
+		$form['field_optional_country']['#suffix'] = '</div></div>';
+		$form['field_optional_country']['und']['#title_display'] = 'invisible';
+
+		/* POST NUMBER */
+		$form['field_optional_post_number']['#prefix'] = '<div class="row"><div class="col-sm-5 no-padding-right">';
+		$form['field_optional_post_number']['#suffix'] = '</div>';
+		$form['field_optional_post_number']['und'][0]['value']['#attributes']['placeholder'] = t('Postnummer');
+		$form['field_optional_post_number']['und'][0]['value']['#title_display'] = 'invisible';
+
+		/* POST ADDRESS */
+		$form['field_optional_post_address']['#prefix'] = '<div class="col-sm-7">';
+		$form['field_optional_post_address']['#suffix'] = '</div></div>';
+		$form['field_optional_post_address']['und'][0]['value']['#attributes']['placeholder'] = t('Postadress');
+		$form['field_optional_post_address']['und'][0]['value']['#title_display'] = 'invisible';
+
+		/* SOCIAL OR SECURITY NUMBER */
+		$form['field_optional_social_security_n']['#prefix'] = '<div class="row"><div class="col-sm-12">';
+		$form['field_optional_social_security_n']['#suffix'] = '</div></div></div>';
+		$form['field_optional_social_security_n']['und'][0]['value']['#attributes']['placeholder'] = t('Personnummer/Organisationsnummer');
+		$form['field_optional_social_security_n']['und'][0]['value']['#title_display'] = 'invisible';
+
+		/* TERMS */
+		$form['field_jag_accepterar_villkoren']['#prefix'] = '<div class="row"><div class="col-sm-6">';
+		$form['field_jag_accepterar_villkoren']['#suffix'] = '</div>';
+
+		/* SING UP */
+		$form['actions']['#prefix'] = '<div class="col-sm-6 text-right">';
+		$form['actions']['#suffix'] = '</div></div>';
+    }
+
+    // LOGIN CALLOUT BLOCK/FORM
+    if($form_id == 'user_login') {
+    	/* USERNAME */
+    	$form['name']['#prefix'] = '<div class="row"><div class="col-sm-12">';
+    	$form['name']['#suffix'] = '</div></div>';
+		$form['name']['#title_display'] = 'invisible';
+		$form['name']['#attributes']['placeholder'] = t('Alias *');
+
+		/* PASSWORD */
+		$form['pass']['#prefix'] = '<div class="row"><div class="col-sm-12">';
+    	$form['pass']['#suffix'] = '</div></div>';
+		$form['pass']['#title_display'] = 'invisible';
+		$form['pass']['#attributes']['placeholder'] = t('Lösenord *');
+
+		/* REMEMBER ME */
+		$form['remember_me']['#prefix'] = '<div class="row"><div class="col-sm-12">';
+		$form['remember_me']['#suffix'] = '</div></div>';
+
+		/* LOGIN BUTTON */
+		$form['actions']['#prefix'] = '<div class="row"><div class="col-sm-6"><div id="forgot-password">'.t('Glömt lösenord?').'</div></div><div class="col-sm-6">';
+		$form['actions']['#suffix'] = '</div></div>';
+    }
+
+    // FORGOT PASSWORD CALLOUT BLOCK/FORM
+    if($form_id == 'user_pass') {
+    	/* USERNAME */
+    	$form['name']['#title_display'] = 'invisible';
+    	$form['name']['#attributes']['placeholder'] = t('Epost *');
+    	$form['name']['#prefix'] = '<div class="row"><div class="col-sm-12"><h1>'.t('Glömt lösenord?').'</h1><p>'.t('Skriv in den e-pastaddress som du angav vid regisrering sa skickar vi ett nytt losenord till den adressen.').'</p></div></div>';
+
+    	/* SUBMIT BUTTON */
+		$form['actions']['#prefix'] = '<div class="row"><div class="col-sm-offset-6 col-sm-6 text-right">';
+		$form['actions']['#suffix'] = '</div></div>';
+    	$form['actions']['submit']['#value'] = t('Skicka');
+    }
+}
+
+function register_alter_password_confirm($element) {
+	$element['pass1']['#prefix'] = '<div class="col-sm-6">';
+	$element['pass1']['#suffix'] = '</div>';
+	$element['pass1']['#attributes']['placeholder'] = t('Lösenord *');
+	$element['pass1']['#title_display'] = 'invisible';
+
+	$element['pass2']['#prefix'] = '<div class="col-sm-6">';
+	$element['pass2']['#suffix'] = '</div>';
+	$element['pass2']['#attributes']['placeholder'] = t('Upprepa lösenord *');
+	$element['pass2']['#title_display'] = 'invisible';
+
+	return $element;
+}
+
+
+function awave_translated_menu_link_alter(&$item, $map) {
+  if (($item['link_title'] == 'Swedish' || $item['link_title'] == 'English')  &&  $item['menu_name'] == 'user-menu') {
+    global $language;
+ 
+	if ($language->language == 'sv') {
+		$item['link_title'] = 'English';
+		$item['title'] = 'English';
+		$item['href'] = 'en';
+		$item['language'] = array( 'language' => 'en');
+	} else {
+		$item['link_title'] = 'Swedish';
+		$item['title'] = 'Swedish';
+		$item['href'] = 'sv';
+		$item['language'] = array( 'language' => 'sv');
+		
+	}
+  }
+}
+
+function awave_ds_fields_info($entity_type) {
+  $fields = array();
+
+  $fields['submitted_by'] = array(
+    'title' => t('Submitted by'),
+    'field_type' => DS_FIELD_TYPE_FUNCTION,
+    'ui_limit' => array('*|*'),
+    'function' => '_awave_ds_field_submitted_by',
+  );
+
+  return array('node' => $fields);
+}
+
+/**
+ * Render a "Submitted by"-line.
+ */
+function _awave_ds_field_submitted_by($field) {
+
+  $date = format_date($field['entity']->created, 'short' );
+
+  $account = user_load($field['entity']->uid);
+  $username = theme('username', array('account' => $account));
+
+  return t('!username &bull; !date', array('!date' => $date, '!username' => $username));
+}
+

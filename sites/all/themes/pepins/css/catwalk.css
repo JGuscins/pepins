@@ -1,0 +1,29 @@
+/* line 6, ../sass/catwalk.scss */
+.node-type-catwalk .field-name-title h2 {
+  font-size: 45px;
+  line-height: 158%;
+  margin-bottom: .3em;
+  margin-top: .6em;
+}
+@media screen and (max-width: 767px) {
+  /* line 6, ../sass/catwalk.scss */
+  .node-type-catwalk .field-name-title h2 {
+    font-size: 35px;
+    line-height: 130%;
+    margin-top: .9em;
+  }
+}
+/* line 19, ../sass/catwalk.scss */
+.node-type-catwalk .field-name-body p {
+  font-size: 19px;
+  font-style: italic;
+  line-height: 158%;
+  margin-bottom: 2em;
+}
+@media screen and (max-width: 767px) {
+  /* line 19, ../sass/catwalk.scss */
+  .node-type-catwalk .field-name-body p {
+    font-size: 15px;
+    line-height: 146%;
+  }
+}

@@ -1,0 +1,50 @@
+<?php
+
+function awave_facebook_menu() {
+  $items['user/login-with-facebook'] = array(
+    'page callback' => 'awave_facebook_login',
+    'access callback' => 'user_is_anonymous',
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  $items['admin/config/people/facebook-login'] = array(
+    'title' => 'Facebook login settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('awave_facebook_api_keys_settings'),
+    'access arguments' => array('administer'),
+    'file' => 'awave_facebook.admin.inc',
+  );
+
+  return $items;
+}
+
+function awave_facebook_login() {
+  if(isset($_SESSION['linkedin_auth'])) {
+    unset($_SESSION['linkedin_auth']);
+  }
+
+  require 'awave_facebook.lib.php';
+
+  $facebook = new Facebook(array(
+    'appId'  => variable_get('awave_facebook_appid', 'no_app_id'),
+    'secret' => variable_get('awave_facebook_secret', 'no_app_secret')
+  ));
+
+  $user = $facebook->getUser();
+
+  if($user) {
+    try {
+      $data = $facebook->api('/me','GET');
+    } catch (FacebookApiException $e) {
+      $user = null;
+    }
+  }
+
+  if($user) {
+    $_SESSION['facebook_auth'] = $data;
+    drupal_goto('user/register');
+  } else {
+    $url = $facebook->getLoginUrl(array('scope' => 'user_location, email'));
+    drupal_goto($url);
+  }
+}

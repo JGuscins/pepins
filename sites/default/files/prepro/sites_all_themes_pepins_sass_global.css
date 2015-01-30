@@ -1,0 +1,142 @@
+html {
+  box-sizing: border-box; }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; }
+
+#navbar {
+  background: #262626;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+  border: none; }
+  #navbar a {
+    color: white;
+    border-top: 5px solid #262626; }
+  #navbar a.active {
+    background: none;
+    border-top: 5px solid #f14697; }
+  #navbar .navbar-nav > li > a {
+    padding-top: 7px;
+    padding-bottom: 0px; }
+  #navbar .navbar-nav.secondary {
+    font-style: italic; }
+
+.row-fluid.first-row {
+  text-align: center;
+  padding-bottom: 30px; }
+
+.row-fluid.topleft-topright {
+  padding: 40px 0; }
+
+.row-fluid.fullwidth {
+  margin-left: -3000px;
+  padding-left: 3000px;
+  margin-right: -3000px;
+  padding-right: 3000px;
+  overflow: hidden;
+  padding-bottom: 20px; }
+
+.row-fluid.darkbg {
+  background: #f3f3f3; }
+
+  body.node-type-campaign .fullwidth .field-name-body {
+    font-style: italic;
+    font-size: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 20px; }
+  body.node-type-campaign .field-name-field-campaign-offer,
+  body.node-type-campaign .field-name-field-campaign-keypersons,
+  body.node-type-campaign .field-name-field-campaign-other-info,
+  body.node-type-campaign .field-name-field-campaign-finance,
+  body.node-type-campaign .field-name-field-campaign-invest,
+  body.node-type-campaign .field-name-field-campaign-phase {
+    width: 33%;
+    float: left;
+    display: block;
+    padding: 5px 10px; }
+    body.node-type-campaign .field-name-field-campaign-offer div,
+    body.node-type-campaign .field-name-field-campaign-keypersons div,
+    body.node-type-campaign .field-name-field-campaign-other-info div,
+    body.node-type-campaign .field-name-field-campaign-finance div,
+    body.node-type-campaign .field-name-field-campaign-invest div,
+    body.node-type-campaign .field-name-field-campaign-phase div {
+      display: inline;
+      float: none; }
+  body.node-type-campaign .node-texter.node-teaser {
+    background: url(/sites/all/themes/pepins/images/arrow_up.png) no-repeat right 25px;
+    border-bottom: 1px solid #cccccc; }
+    body.node-type-campaign .node-texter.node-teaser h2 a {
+      color: black; }
+    body.node-type-campaign .node-texter.node-teaser .field-name-body {
+      margin-bottom: 20px;
+      display: none; }
+    body.node-type-campaign .node-texter.node-teaser .links {
+      margin-bottom: 20px;
+      display: none; }
+  body.node-type-campaign .node-texter.node-teaser.active {
+    background: url(/sites/all/themes/pepins/images/arrow_down.png) no-repeat right 25px; }
+    body.node-type-campaign .node-texter.node-teaser.active .field-name-body,
+    body.node-type-campaign .node-texter.node-teaser.active .links {
+      display: block; }
+
+footer {
+  background: #f3f3f5 url(/sites/all/themes/pepins/images/footer_bg.png) no-repeat right bottom;
+  border-top: none; }
+  footer .region-footer {
+    line-height: 1.8em; }
+    footer .region-footer h2 {
+      margin: 0;
+      font-style: italic;
+      font-size: 20px;
+      PADDING-BOTTOM: 20px; }
+    footer .region-footer #block-block-1 {
+      width: 40%;
+      float: left;
+      margin-right: 10%; }
+      footer .region-footer #block-block-1 .footerlogo {
+        margin-bottom: 20px; }
+    footer .region-footer #block-block-2 {
+      width: 25%;
+      float: left; }
+    footer .region-footer #block-block-3 {
+      width: 25%;
+      float: left; }
+
+/*
+ * **  galleri  **
+ */
+  .node-campaign .slide_thumb {
+    width: 81px;
+    height: 63px;
+    cursor: pointer;
+    margin-right: 9px;
+    margin-top: 9px; }
+
+/*
+ * ** slut galleri  **
+ */
+body.navbar-is-fixed-top {
+  padding-top: 50px !important; }
+
+body.toolbar.navbar-is-fixed-top {
+  padding-top: 80px !important; }
+
+/*
+ * * start topimage *
+ */
+.top_image {
+  background: no-repeat;
+  background-position: top center;
+  min-height: 330px;
+  background-size: cover;
+  text-align: center;
+  color: white; }
+
+/*
+ * * stop topimage *
+ */

@@ -1,0 +1,54 @@
+<?php
+
+function awave_linkedin_menu() {
+  $items['user/login-with-linkedin'] = array(
+    'page callback' => 'awave_linkedin_login',
+    'access callback' => 'user_is_anonymous',
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  $items['admin/config/people/linkedin-login'] = array(
+    'title' => 'Linkedin login settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('awave_linkedin_api_keys_settings'),
+    'access arguments' => array('administer'),
+    'file' => 'awave_linkedin.admin.inc',
+  );
+
+  return $items;
+}
+
+function awave_linkedin_login() {
+  if(isset($_SESSION['facebook_auth'])) {
+    unset($_SESSION['facebook_auth']);
+  }
+
+  require 'awave_linkedin.lib.php';
+
+  $api_key        = variable_get('awave_linkedin_appid', 'no_app_id');
+  $api_secret     = variable_get('awave_linkedin_secret', 'no_app_secret');
+  $callback_url   = url('user/login-with-linkedin', array('absolute' => true));
+  $scope          = array('r_basicprofile','r_emailaddress', 'r_contactinfo');
+
+  $config = array('api_key' => $api_key, 'api_secret' => $api_secret , 'callback_url' => $callback_url);
+  $connection = new LinkedIn($config);
+
+  if(isset($_REQUEST['code'])) {
+    $code = $_REQUEST['code'];
+    $access_token = $connection->getAccessToken($code);
+    $connection->setAccessToken($access_token);
+    $user = $connection->get("people/~:(id,first-name,last-name,email-address,headline,picture-url,phone-numbers,main-address)");
+
+    $_SESSION['linkedin_auth'] = $user;
+    drupal_goto('user/register');
+  } else {
+    if(isset($_REQUEST['error'])) {
+      // This gets executed if user didn't authenticates your app
+      drupal_goto(url('user/register'));
+    } else {
+      // Redirecting user for LinkedIn Authentication
+      $authUrl = $connection->getLoginUrl($scope);
+      drupal_goto($authUrl);
+    }
+  }
+}

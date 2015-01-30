@@ -1,0 +1,7 @@
+@import 'style';
+
+.field-name-field-ingress .field-item {
+  @extend h4.ingress;
+
+  font-style: italic;
+}

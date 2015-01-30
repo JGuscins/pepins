@@ -1,0 +1,140 @@
+@import 'compass/utilities/sprites';
+@import 'sprite/*.png';
+@include all-sprite-sprites;
+
+.user-register-form {
+	h4 {
+		margin: 0 0 15px 0;
+	}
+
+	.btn.btn-success {
+		background: #5ccc76;
+		position: relative;
+		color: #fff;
+		font-family: Roboto;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 40px;
+		padding: 0 50px;
+		text-transform: uppercase;
+		border-color: transparent;
+
+	    &:hover {
+	      background-color: #3f774c;
+	      color: #fff;
+		}
+	}
+
+	.btn.btn-default {
+		background: #000;
+		margin: 0 15px 0 0;
+		position: relative;
+
+		span {
+			color: #fff;
+			font-family: Roboto;
+			font-size: 16px;
+			font-weight: 700;
+			line-height: 40px;
+    	}
+
+    	.icon-facebook {
+    		@include sprite-sprite(facebook_white);
+    		width: 29px;
+    		height: 29px;
+    		position: relative;
+    		top: 8px;
+    	}
+
+    	.icon-linkedin {
+    		@include sprite-sprite(linkedin_white);
+    		width: 29px;
+    		height: 29px;
+    		position: relative;
+    		top: 8px;
+    	}
+
+    	    &:hover { 
+		      background-color: #4e4e4e;
+		      color: #fff;
+    		}
+	}
+
+	h3.optional_options {
+		@include sprite-sprite(arrow_small_down);
+		padding: 0 0 0 30px;
+		height: 22px;
+		margin: 15px 0;  
+		font-weight: 400; 
+		cursor: pointer;
+		font-size: 18px;  
+		color: #1c54a5;
+	}
+
+	h3.optional_options.collapsed {
+		@include sprite-sprite(arrow_small_up);
+	}
+
+	.help-block {
+		display: none;
+	}
+
+	input.password-confirm,
+	input.password-field {
+		width: 100%;
+	}
+
+	input[type="text"], input[type="password"], select, button {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		height: 41px;
+		border-color: #646464;
+		color: #222;
+	}
+
+	input.error {
+		color: #b94a48;
+	}
+
+	button {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+	}
+
+	.form-control:focus {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		outline: 0 none;
+		border-color: #646464;
+	}
+
+	input[type="text"]:focus, input[type="password"]:focus, select:focus {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		outline: 0 none;
+	}
+
+	*::-webkit-input-placeholder {
+	    color: #222;
+	}
+	*:-moz-placeholder {
+	    color: #222;
+	}
+
+	*::-moz-placeholder {
+	    color: #222;
+	}
+
+	*:-ms-input-placeholder {
+	    color: #222;
+	}
+
+	div.addressfield-container-inline > div.form-item {
+		float: none;
+		margin: 0;
+	}
+}

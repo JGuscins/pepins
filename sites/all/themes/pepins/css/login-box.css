@@ -1,0 +1,180 @@
+/* line 1, ../sass/login-box.scss */
+#login-button:hover + #login-box-wrapper,
+#login-box-wrapper:hover {
+  display: block;
+}
+
+/* line 6, ../sass/login-box.scss */
+#login-box-wrapper {
+  display: none;
+  padding-top: 75px;
+  width: 300px;
+  position: absolute;
+  top: 0;
+  left: -110px;
+}
+
+/* line 15, ../sass/login-box.scss */
+#login-box {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  color: #FFF;
+  background: rgba(1, 0, 0, 0.9);
+  padding: 15px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: none;
+  text-decoration: none;
+}
+/* line 29, ../sass/login-box.scss */
+#login-box .triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 17px 12px 17px;
+  border-color: transparent transparent rgba(0, 0, 0, 0.95) transparent;
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  margin-left: -17px;
+}
+/* line 42, ../sass/login-box.scss */
+#login-box .btn.btn-default {
+  background: #5ccc76;
+  position: relative;
+  color: #fff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 40px;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+  border-color: transparent;
+  width: 100%;
+  min-width: 0;
+}
+/* line 57, ../sass/login-box.scss */
+#login-box .btn.btn-default:hover {
+  background-color: #3f774c;
+  color: #fff;
+}
+/* line 63, ../sass/login-box.scss */
+#login-box #forgot-password {
+  color: #f14797;
+  cursor: pointer;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 40px;
+  font-style: normal;
+  text-transform: none;
+  text-decoration: none;
+}
+/* line 75, ../sass/login-box.scss */
+#login-box input[type="text"], #login-box input[type="password"], #login-box select, #login-box button {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  height: 41px;
+  border-color: #646464;
+  color: #222;
+}
+/* line 84, ../sass/login-box.scss */
+#login-box *::-webkit-input-placeholder {
+  color: #222;
+}
+/* line 87, ../sass/login-box.scss */
+#login-box *:-moz-placeholder {
+  color: #222;
+}
+/* line 91, ../sass/login-box.scss */
+#login-box *::-moz-placeholder {
+  color: #222;
+}
+/* line 95, ../sass/login-box.scss */
+#login-box *:-ms-input-placeholder {
+  color: #222;
+}
+
+/* line 100, ../sass/login-box.scss */
+#forgot-password-box {
+  display: none;
+  position: absolute;
+  width: 300px;
+  padding: 15px;
+  top: 75px;
+  left: 0;
+  color: #FFF;
+  background: rgba(1, 0, 0, 0.85);
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: none;
+  text-decoration: none;
+}
+/* line 116, ../sass/login-box.scss */
+#forgot-password-box h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+/* line 124, ../sass/login-box.scss */
+#forgot-password-box p {
+  font-family: Roboto;
+  font-size: 13px;
+  line-height: 15px;
+  margin-bottom: 5px;
+}
+/* line 131, ../sass/login-box.scss */
+#forgot-password-box input[type="text"], #forgot-password-box input[type="password"], #forgot-password-box select, #forgot-password-box button {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  height: 41px;
+  border-color: #646464;
+  color: #222;
+}
+/* line 140, ../sass/login-box.scss */
+#forgot-password-box *::-webkit-input-placeholder {
+  color: #222;
+}
+/* line 143, ../sass/login-box.scss */
+#forgot-password-box *:-moz-placeholder {
+  color: #222;
+}
+/* line 147, ../sass/login-box.scss */
+#forgot-password-box *::-moz-placeholder {
+  color: #222;
+}
+/* line 151, ../sass/login-box.scss */
+#forgot-password-box *:-ms-input-placeholder {
+  color: #222;
+}
+/* line 155, ../sass/login-box.scss */
+#forgot-password-box .btn.btn-primary {
+  background: #5ccc76;
+  position: relative;
+  color: #fff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 40px;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+  border-color: transparent;
+  width: 100%;
+  min-width: 0;
+}
+/* line 170, ../sass/login-box.scss */
+#forgot-password-box .btn.btn-primary:hover {
+  background-color: #3f774c;
+  color: #fff;
+}
